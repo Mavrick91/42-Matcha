@@ -25,4 +25,5 @@ const styles = {
 	},
 };
 
+
 export default injectSheet(styles)(Footer);
