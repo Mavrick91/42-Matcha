@@ -6,6 +6,10 @@ import { linkTo } from '@storybook/addon-links';
 import ButtonGradient from '../presentational/ButtonGradient';
 import { Button, Welcome } from '@storybook/react/demo';
 
-storiesOf('Button', module).add('Register', () => (
-  <ButtonGradient text="Register" />
-));
+const handleClick = () => {
+  console.log('functionOnClick');
+};
+
+storiesOf('Button', module).add('Register', () => {
+  return <ButtonGradient text="REGISTER" onClick={handleClick} />;
+});
