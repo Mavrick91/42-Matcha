@@ -4,12 +4,10 @@ import injectSheet from 'react-jss';
 class ButtonGradient extends Component {
   render() {
     const { classes, text, onClick } = this.props;
+
     return (
       <div className={classes.container}>
-        <button
-          onClick={onClick}
-          className={classes.buttonClass}
-        >
+        <button onClick={onClick} className={classes.buttonClass}>
           {text}
         </button>
       </div>
@@ -26,8 +24,8 @@ const styles = {
     padding: '15px 30px',
     background: 'linear-gradient(to right, #FE2E64 , #FE642E)',
     '&:hover': {
-       cursor: 'pointer',
-    }, 
+      cursor: 'pointer',
+    },
   },
   buttonClass: {
     background: 'none',
@@ -38,11 +36,9 @@ const styles = {
     letterSpacing: '0.5px',
     outline: 'none',
     '&:hover': {
-        cursor: 'pointer',
-    }, 
+      cursor: 'pointer',
+    },
   },
 };
 
 export default injectSheet(styles)(ButtonGradient);
-
-//permet de connecter le jsx du component avec le css de styles
