@@ -21,7 +21,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '15px',
-    padding: '15px 30px',
+    padding: '10px 20px',
     background: '#FE2E64',
     '&:hover': {
       cursor: 'pointer',
