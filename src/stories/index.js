@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import ButtonGradient from '../presentational/ButtonGradient';
 import Footer from '../presentational/Footer';
 import ButtonNormal from '../presentational/ButtonNormal';
+import StickerNotification from '../presentational/StickerNotification';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -21,4 +22,8 @@ storiesOf('Footer', module).add('footer', () => {
 
 storiesOf('ButtonNormal', module).add('buttonNormal', () => {
   return <ButtonNormal text="CONNEXION" onClick={handleClick} />;
+});
+
+storiesOf('StickerNotification', module).add('stickerNotification', () => {
+  return <StickerNotification text="13"/>;
 });
