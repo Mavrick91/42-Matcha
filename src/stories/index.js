@@ -6,6 +6,7 @@ import Footer from '../presentational/Footer';
 import ButtonNormal from '../presentational/ButtonNormal';
 import StickerNotification from '../presentational/StickerNotification';
 import Header from '../presentational/Header';
+import DropdownMenu from '../presentational/DropdownMenu';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -28,6 +29,11 @@ storiesOf('ButtonNormal', module).add('buttonNormal', () => {
 storiesOf('StickerNotification', module).add('stickerNotification', () => {
   return <StickerNotification text="13"/>;
 });
+
 storiesOf('Header', module).add('header', () => {
   return <Header />;
+});
+
+storiesOf('DropdownMenu', module).add('dropdowmMenu', () => {
+  return <DropdownMenu />;
 });
