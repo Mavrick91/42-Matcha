@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
-import { Link } from 'react-router-dom';
 
 import matchaLogo from '../images/photos_selected/Header/matcha.jpg';
 import VisitLogo from '../images/photos_selected/Header/people-notifications.png';
@@ -13,23 +12,23 @@ import DropdownMenu from './DropdownMenu';
 
 class Header extends Component {
   state = {
-    showIcons: true,
+    showIcons: false,
     showNotifLike: false,
-    showNotifVisit: false,
+    showNotifVisit: false
   };
 
   componentWillMount() {
-    const { pathName } = this.props;
+    const { pathname } = this.props;
 
     const tmp = [
       '/profile',
       '/profile/modify',
       '/research',
       '/deleteAccount',
-      '/chat',
+      '/chat'
     ];
 
-    if (tmp.includes(pathName)) {
+    if (tmp.includes(pathname)) {
       this.setState({ showIcons: true });
     }
   }
@@ -38,20 +37,22 @@ class Header extends Component {
     this.setState({
       showNotifLike: false,
       showNotifVisit: false,
-      [nameIcon]: !this.state[nameIcon],
+      [nameIcon]: !this.state[nameIcon]
     });
   };
 
   render() {
     const {
       classes,
-      pathName,
+      pathname,
       numberNotifChat,
       numberNotifLike,
       numberNotifVisit,
+      history
     } = this.props;
     const { showNotifVisit, showNotifLike } = this.state;
     let text;
+    let location;
 
     const icons = [
       <div className={classes.stickerNotification}>
@@ -72,16 +73,18 @@ class Header extends Component {
           {showNotifVisit && <DropdownMenu />}
         </button>
       </div>,
-      <img className={classes.profilePhoto} src={DefaultPhoto} alt="" />,
+      <img className={classes.profilePhoto} src={DefaultPhoto} alt="" />
     ];
 
-    switch (pathName) {
+    switch (pathname) {
       case '/login':
         text = 'REGISTER';
+        location = '/register';
         break;
       case '/':
       case '/register':
         text = 'LOGIN';
+        location = '/login';
         break;
       case '/profile':
       case '/profile/modify':
@@ -89,6 +92,7 @@ class Header extends Component {
       case '/deleteAccount':
       case '/chat':
         text = 'LOGOUT';
+        location = '/login';
         break;
       default:
         text = 'TEXT HERE';
@@ -99,7 +103,12 @@ class Header extends Component {
         <img className={classes.matchaLogo} src={matchaLogo} alt="" />
         <div className={classes.notifications}>
           {this.state.showIcons && icons}
-          <ButtonNormal text={text} />
+          <ButtonNormal
+            text={text}
+            onClick={() => {
+              history.push(location);
+            }}
+          />
         </div>
       </div>
     );
@@ -108,7 +117,7 @@ class Header extends Component {
 Header.defaultProps = {
   numberNotifChat: '1',
   numberNotifLike: '0',
-  numberNotifVisit: '14',
+  numberNotifVisit: '14'
 };
 
 const styles = {
@@ -117,36 +126,39 @@ const styles = {
       background: 'transparent',
       border: 'none',
       outline: 'none',
+      padding: '0',
       '&:hover': {
-        cursor: 'pointer',
-      },
-    },
+        cursor: 'pointer'
+      }
+    }
   },
   container: {
     display: 'flex',
     alignItems: 'center',
     borderBottom: '1px solid #D8D8D8',
     height: '100px',
+    padding: '0 30px'
   },
   matchaLogo: {
     height: '70px',
-    margin: 'auto',
+    margin: 'auto'
   },
   stickerNotification: {
     position: 'relative',
+    marginRight: '15px'
   },
   notifications: {
     display: 'flex',
     alignItems: 'center',
-    '& > div > img, & > img': {
+    '& > img': {
       marginRight: '15px',
-      height: '40px',
-    },
+      height: '40px'
+    }
   },
   profilePhoto: {
     border: '1px solid black',
-    borderRadius: '1000px',
-  },
+    borderRadius: '1000px'
+  }
 };
 
 export default injectSheet(styles)(Header);

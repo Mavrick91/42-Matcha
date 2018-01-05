@@ -67,7 +67,7 @@ const styles = {
   arrow: {
     position: 'absolute',
     top: '10px',
-    right: '24px',
+    right: '14px',
     width: '20px',
     height: '20px',
     boxShadow: '-2px -2px 3px .1px lightgrey',
