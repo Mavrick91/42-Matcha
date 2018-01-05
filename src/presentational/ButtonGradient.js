@@ -23,9 +23,10 @@ const styles = {
     borderRadius: '35px',
     padding: '21px 50px',
     background: 'linear-gradient(to right, #FE2E64 , #FE642E)',
+    boxShadow: '0px 0px 5px 1px Lightgray',
     '&:hover': {
-      cursor: 'pointer'
-    }
+      cursor: 'pointer',
+    },
   },
   buttonClass: {
     background: 'none',
@@ -36,9 +37,9 @@ const styles = {
     letterSpacing: '0.5px',
     outline: 'none',
     '&:hover': {
-      cursor: 'pointer'
-    }
-  }
+      cursor: 'pointer',
+    },
+  },
 };
 
 export default injectSheet(styles)(ButtonGradient);
