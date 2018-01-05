@@ -67,7 +67,7 @@ const styles = {
   arrow: {
     position: 'absolute',
     top: '10px',
-    right: '14px',
+    right: '20px',
     width: '20px',
     height: '20px',
     boxShadow: '-2px -2px 3px .1px lightgrey',
@@ -77,7 +77,7 @@ const styles = {
   containerDropdown: {
     display: 'inline-block',
     position: 'absolute',
-    top: '45px',
+    top: '30px',
     right: '0',
   },
   containerItem: {

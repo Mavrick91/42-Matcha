@@ -5,7 +5,8 @@ import matchaLogo from '../images/photos_selected/Header/matcha.jpg';
 import VisitLogo from '../images/photos_selected/Header/people-notifications.png';
 import ChatLogo from '../images/photos_selected/Header/talk-icon.png';
 import LikeLogo from '../images/photos_selected/Header/heart.png';
-import DefaultPhoto from '../images/photos_selected/Profile-Page/woman-figure.jpg';
+import account from '../images/photos_selected/Header/account.png';
+
 import ButtonNormal from './ButtonNormal';
 import StickerNotification from './StickerNotification';
 import DropdownMenu from './DropdownMenu';
@@ -14,7 +15,7 @@ class Header extends Component {
   state = {
     showIcons: false,
     showNotifLike: false,
-    showNotifVisit: false
+    showNotifVisit: false,
   };
 
   componentWillMount() {
@@ -25,7 +26,7 @@ class Header extends Component {
       '/profile/modify',
       '/research',
       '/deleteAccount',
-      '/chat'
+      '/chat',
     ];
 
     if (tmp.includes(pathname)) {
@@ -37,7 +38,7 @@ class Header extends Component {
     this.setState({
       showNotifLike: false,
       showNotifVisit: false,
-      [nameIcon]: !this.state[nameIcon]
+      [nameIcon]: !this.state[nameIcon],
     });
   };
 
@@ -48,7 +49,7 @@ class Header extends Component {
       numberNotifChat,
       numberNotifLike,
       numberNotifVisit,
-      history
+      history,
     } = this.props;
     const { showNotifVisit, showNotifLike } = this.state;
     let text;
@@ -73,7 +74,9 @@ class Header extends Component {
           {showNotifVisit && <DropdownMenu />}
         </button>
       </div>,
-      <img className={classes.profilePhoto} src={DefaultPhoto} alt="" />
+      <div className={classes.stickerNotification}>
+        <img src={account} alt="" />
+      </div>,
     ];
 
     switch (pathname) {
@@ -117,7 +120,7 @@ class Header extends Component {
 Header.defaultProps = {
   numberNotifChat: '1',
   numberNotifLike: '0',
-  numberNotifVisit: '14'
+  numberNotifVisit: '14',
 };
 
 const styles = {
@@ -128,37 +131,38 @@ const styles = {
       outline: 'none',
       padding: '0',
       '&:hover': {
-        cursor: 'pointer'
-      }
-    }
+        cursor: 'pointer',
+      },
+    },
+    img: {
+      height: '30px',
+      marginRight: '15px',
+    },
   },
   container: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'flex-end',
     borderBottom: '1px solid #D8D8D8',
     height: '100px',
-    padding: '0 30px'
+    padding: '0 30px',
+    position: 'relative',
   },
   matchaLogo: {
     height: '70px',
-    margin: 'auto'
+    margin: 'auto',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   },
   stickerNotification: {
     position: 'relative',
-    marginRight: '15px'
   },
   notifications: {
     display: 'flex',
-    alignItems: 'center',
-    '& > img': {
-      marginRight: '15px',
-      height: '40px'
-    }
+    alignItems: 'flex-end',
   },
-  profilePhoto: {
-    border: '1px solid black',
-    borderRadius: '1000px'
-  }
 };
 
 export default injectSheet(styles)(Header);
