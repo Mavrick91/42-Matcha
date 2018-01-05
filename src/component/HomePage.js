@@ -15,7 +15,9 @@ class HomePage extends Component {
           <div className={classes.textLeftContainer}>
             “The best online dating site to find love!” - The New York Times
           </div>
-          <img src={couple_img} alt="" />
+          <div className={classes.imgLeftContainer}>
+            <img src={couple_img} alt="" />
+          </div>
         </div>
         <div className={classes.rightContainer}>
           <div className={classes.imgRightContainer}>
@@ -39,41 +41,21 @@ class HomePage extends Component {
 
 const styles = {
   container: {
-    display: 'flex'
-  },
-  leftContainer: {
-    display: 'inline-flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '60%',
-    '& > img': {
-      width: '100%'
-    }
-  },
-  textLeftContainer: {
-    fontSize: '30px',
-    padding: '20px 0',
-    textAlign: 'center'
-  },
-  rightContainer: {
-    display: 'inline-flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '40%',
-    '& > ButtonGradient': {
-      width: '100px'
-    }
+    display: 'flex',
+    height: 'calc(100vh - 161px)',
   },
   imgRightContainer: {
-    height: '400px',
-    paddingTop: '150px',
+    width: '100%',
     '& > img': {
-      height: '100%'
-    }
+      width: '100%',
+    },
   },
-  registerButtonWrapper: {
-    display: 'flex',
-    justifyContent: 'center'
+  imgLeftContainer: {
+    width: '100%',
+    height: '100%',
+    '& > img': {
+      width: '100%',
+    },
   },
   msgRegister: {
     display: 'flex',
@@ -81,8 +63,38 @@ const styles = {
     fontSize: '12px',
     color: 'lightGrey',
     fontFamily: 'MS Serif, New York, sans-serif',
-    paddingTop: '50px'
-  }
+    paddingTop: '50px',
+  },
+  leftContainer: {
+    display: 'inline-flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '60%',
+    overflow: 'hidden',
+    height: '100%',
+    '& > img': {
+      width: '100%',
+      height: '100%',
+    },
+  },
+  rightContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '40%',
+    '& > ButtonGradient': {
+      width: '100px',
+    },
+  },
+  registerButtonWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  textLeftContainer: {
+    fontSize: '30px',
+    padding: '20px 0',
+  },
 };
 
 export default injectSheet(styles)(HomePage);
