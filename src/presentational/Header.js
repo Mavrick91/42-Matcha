@@ -9,59 +9,97 @@ import LikeLogo from '../images/photos_selected/Header/heart.png';
 import DefaultPhoto from '../images/photos_selected/Profile-Page/woman-figure.jpg';
 import ButtonNormal from './ButtonNormal';
 import StickerNotification from './StickerNotification';
+import DropdownMenu from './DropdownMenu';
 
 class Header extends Component {
+  state = {
+    showIcons: true,
+    showNotifLike: false,
+    showNotifVisit: false,
+  };
+
+  componentWillMount() {
+    const { pathName } = this.props;
+
+    const tmp = [
+      '/profile',
+      '/profile/modify',
+      '/research',
+      '/deleteAccount',
+      '/chat',
+    ];
+
+    if (tmp.includes(pathName)) {
+      this.setState({ showIcons: true });
+    }
+  }
+
+  handleClickEvent = nameIcon => {
+    this.setState({
+      showNotifLike: false,
+      showNotifVisit: false,
+      [nameIcon]: !this.state[nameIcon],
+    });
+  };
+
   render() {
-    const { classes , pathName, numberNotifChat, numberNotifLike, numberNotifVisit } = this.props;
-    console.log(this.props.numberNotifChat);
+    const {
+      classes,
+      pathName,
+      numberNotifChat,
+      numberNotifLike,
+      numberNotifVisit,
+    } = this.props;
+    const { showNotifVisit, showNotifLike } = this.state;
     let text;
+
     const icons = [
       <div className={classes.stickerNotification}>
-        <StickerNotification text={numberNotifChat}/>
-        <Link to="/Chat">
-          <img src={ChatLogo} alt=""/>
-        </Link>
+        <StickerNotification text={numberNotifChat} />
+        <img src={ChatLogo} alt="" />
       </div>,
       <div className={classes.stickerNotification}>
-        <StickerNotification text={numberNotifLike}/>
-          <img src={LikeLogo} alt=""/>
+        <button onClick={() => this.handleClickEvent('showNotifLike')}>
+          <StickerNotification text={numberNotifLike} />
+          <img src={LikeLogo} alt="" />
+          {showNotifLike && <DropdownMenu />}
+        </button>
       </div>,
       <div className={classes.stickerNotification}>
-        <StickerNotification text={numberNotifVisit}/>            
-          <img src={VisitLogo} alt=""/>
+        <button onClick={() => this.handleClickEvent('showNotifVisit')}>
+          <StickerNotification text={numberNotifVisit} />
+          <img src={VisitLogo} alt="" />
+          {showNotifVisit && <DropdownMenu />}
+        </button>
       </div>,
-      <img className={classes.profilePhoto} src={DefaultPhoto} alt=""/>
+      <img className={classes.profilePhoto} src={DefaultPhoto} alt="" />,
     ];
-    let showIcons = true;
 
     switch (pathName) {
       case '/login':
-        text = "REGISTER"
+        text = 'REGISTER';
         break;
       case '/':
       case '/register':
-        text = "LOGIN"
+        text = 'LOGIN';
         break;
       case '/profile':
       case '/profile/modify':
       case '/research':
       case '/deleteAccount':
       case '/chat':
-        text = "LOGOUT";
-        showIcons = true;
+        text = 'LOGOUT';
         break;
       default:
-        text = "TEXT HERE"
+        text = 'TEXT HERE';
     }
 
     return (
       <div className={classes.container}>
-        <img className={classes.matchaLogo} src={matchaLogo} alt="" />      
+        <img className={classes.matchaLogo} src={matchaLogo} alt="" />
         <div className={classes.notifications}>
-          {
-            showIcons && icons
-          }
-          <ButtonNormal text={text}/>
+          {this.state.showIcons && icons}
+          <ButtonNormal text={text} />
         </div>
       </div>
     );
@@ -74,6 +112,16 @@ Header.defaultProps = {
 };
 
 const styles = {
+  '@global': {
+    button: {
+      background: 'transparent',
+      border: 'none',
+      outline: 'none',
+      '&:hover': {
+        cursor: 'pointer',
+      },
+    },
+  },
   container: {
     display: 'flex',
     alignItems: 'center',
@@ -92,13 +140,13 @@ const styles = {
     alignItems: 'center',
     '& > div > img, & > img': {
       marginRight: '15px',
-      height: '40px'
-    }
+      height: '40px',
+    },
   },
   profilePhoto: {
     border: '1px solid black',
     borderRadius: '1000px',
-  }
+  },
 };
 
 export default injectSheet(styles)(Header);
