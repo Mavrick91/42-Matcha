@@ -4,13 +4,10 @@ import injectSheet from 'react-jss';
 class StickerNotification extends Component {
   render() {
     const { classes, text } = this.props;
-    
-    if (text == '0')
-      return <div></div>
-    
-    return <div className={classes.container}>
-       {text}
-    </div>
+
+    if (text === '0') return <div />;
+
+    return <div className={classes.container}>{text}</div>;
   }
 }
 
