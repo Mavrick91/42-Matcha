@@ -6,6 +6,7 @@ import Footer from '../presentational/Footer';
 
 import LoginPage from './LoginPage';
 import HomePage from './HomePage';
+import RegisterPage from './RegisterPage';
 
 class AppContainer extends Component {
   render() {
@@ -16,6 +17,7 @@ class AppContainer extends Component {
         <Header pathname={pathname} history={history} />
         <Route path="/" exact component={HomePage} />
         <Route path="/login" exact component={LoginPage} />
+        <Route path="/register" exact component={RegisterPage} />
         <Footer />
       </div>
     );
@@ -26,9 +28,9 @@ const styles = {
   '@global': {
     'html, body': {
       margin: '0',
-      height: '100%',
-    },
-  },
+      height: '100%'
+    }
+  }
 };
 
 export default injectSheet(styles)(AppContainer);
