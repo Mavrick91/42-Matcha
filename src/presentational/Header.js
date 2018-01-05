@@ -56,18 +56,18 @@ class Header extends Component {
     let location;
 
     const icons = [
-      <div className={classes.stickerNotification}>
+      <div key="1" className={classes.stickerNotification}>
         <StickerNotification text={numberNotifChat} />
         <img src={ChatLogo} alt="" />
       </div>,
-      <div className={classes.stickerNotification}>
+      <div key="2" className={classes.stickerNotification}>
         <button onClick={() => this.handleClickEvent('showNotifLike')}>
           <StickerNotification text={numberNotifLike} />
           <img src={LikeLogo} alt="" />
           {showNotifLike && <DropdownMenu />}
         </button>
       </div>,
-      <div className={classes.stickerNotification}>
+      <div key="3" className={classes.stickerNotification}>
         <button onClick={() => this.handleClickEvent('showNotifVisit')}>
           <StickerNotification text={numberNotifVisit} />
           <img src={VisitLogo} alt="" />

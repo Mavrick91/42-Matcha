@@ -40,6 +40,11 @@ class HomePage extends Component {
 }
 
 const styles = {
+  '@global': {
+    img: {
+      height: '100%',
+    },
+  },
   container: {
     display: 'flex',
     height: 'calc(100vh - 161px)',

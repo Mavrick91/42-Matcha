@@ -3,17 +3,17 @@ import injectSheet from 'react-jss';
 
 class ButtonNormal extends Component {
   render() {
-    const { classes , text, onClick } = this.props;
-    
+    const { classes, text, onClick } = this.props;
+
     return (
       <div className={classes.container}>
         <button onClick={onClick} className={classes.buttonClass}>
           {text}
         </button>
       </div>
-    )
+    );
   }
-};
+}
 
 const styles = {
   container: {
@@ -22,10 +22,7 @@ const styles = {
     alignItems: 'center',
     borderRadius: '15px',
     padding: '10px 20px',
-    background: '#FE2E64',
-    '&:hover': {
-      cursor: 'pointer',
-    },
+    background: '#F9526A',
   },
   buttonClass: {
     background: 'none',
@@ -41,4 +38,4 @@ const styles = {
   },
 };
 
-export default injectSheet(styles)(ButtonNormal); 
+export default injectSheet(styles)(ButtonNormal);
