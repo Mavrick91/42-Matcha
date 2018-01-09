@@ -25,9 +25,6 @@ storiesOf('Button', module)
   .add('Normal', () => {
     return <ButtonNormal text="CONNEXION" onClick={handleClick} />;
   })
-  .add('Register', () => {
-    return <ButtonGradient text="REGISTER" onClick={handleClick} />;
-  })
   .add('Profile', () => {
     return (
       <div>
@@ -48,10 +45,13 @@ storiesOf('Button', module)
       </div>
     );
   })
-  .add('buttonRegister', () => {
+  .add('Register-Form1', () => {
     return (
       <ButtonRegister text="CONTINUE REGISTRATION" onClick={handleClick} />
     );
+  })
+  .add('Register-Form2', () => {
+    return <ButtonGradient text="REGISTER" onClick={handleClick} />;
   });
 
 storiesOf('StickerNotification', module).add('stickerNotification', () => {
