@@ -9,6 +9,7 @@ import Header from '../presentational/Header';
 import DropdownMenu from '../presentational/DropdownMenu';
 import StarRanking from '../presentational/StarRanking';
 import ButtonProfile from '../presentational/ButtonProfile';
+import ButtonRegister from '../presentational/ButtonRegister';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -45,6 +46,11 @@ storiesOf('Button', module)
         />
         <br />
       </div>
+    );
+  })
+  .add('buttonRegister', () => {
+    return (
+      <ButtonRegister text="CONTINUE REGISTRATION" onClick={handleClick} />
     );
   });
 
