@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import injectSheet from "react-jss";
+import React, { Component } from 'react';
+import injectSheet from 'react-jss';
 
 class Footer extends Component {
   render() {
@@ -16,15 +16,16 @@ class Footer extends Component {
 
 const styles = {
   container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgb(246, 103, 100)",
-    height: "60px",
-    color: "white",
-    fontFamily: "MS Serif, New York, sans-serif",
-    fontSize: "12px"
-  }
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgb(246, 103, 100)',
+    height: '60px',
+    color: 'white',
+    fontFamily: 'MS Serif, New York, sans-serif',
+    fontSize: '12px',
+    zIndex: '10',
+  },
 };
 
 export default injectSheet(styles)(Footer);
