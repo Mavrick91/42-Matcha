@@ -7,6 +7,7 @@ import ButtonNormal from '../presentational/ButtonNormal';
 import StickerNotification from '../presentational/StickerNotification';
 import Header from '../presentational/Header';
 import DropdownMenu from '../presentational/DropdownMenu';
+import StarRanking from '../presentational/StarRanking';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -27,7 +28,7 @@ storiesOf('ButtonNormal', module).add('buttonNormal', () => {
 });
 
 storiesOf('StickerNotification', module).add('stickerNotification', () => {
-  return <StickerNotification text="13"/>;
+  return <StickerNotification text="13" />;
 });
 
 storiesOf('Header', module).add('header', () => {
@@ -36,4 +37,16 @@ storiesOf('Header', module).add('header', () => {
 
 storiesOf('DropdownMenu', module).add('dropdowmMenu', () => {
   return <DropdownMenu />;
+});
+
+storiesOf('Star', module).add('ranking', () => {
+  return (
+    <div>
+      <StarRanking />
+      <br />
+      <StarRanking value={1} />
+      <br />
+      <StarRanking value={4} />
+    </div>
+  );
 });
