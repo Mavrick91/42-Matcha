@@ -9,6 +9,7 @@ import Header from '../presentational/Header';
 import DropdownMenu from '../presentational/DropdownMenu';
 import StarRanking from '../presentational/StarRanking';
 import ButtonProfile from '../presentational/ButtonProfile';
+import ButtonRegister from '../presentational/ButtonRegister';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -23,9 +24,6 @@ storiesOf('Footer', module).add('footer', () => {
 storiesOf('Button', module)
   .add('Normal', () => {
     return <ButtonNormal text="CONNEXION" onClick={handleClick} />;
-  })
-  .add('Register', () => {
-    return <ButtonGradient text="REGISTER" onClick={handleClick} />;
   })
   .add('Profile', () => {
     return (
@@ -46,6 +44,14 @@ storiesOf('Button', module)
         <br />
       </div>
     );
+  })
+  .add('Register-Form1', () => {
+    return (
+      <ButtonRegister text="CONTINUE REGISTRATION" onClick={handleClick} />
+    );
+  })
+  .add('Register-Form2', () => {
+    return <ButtonGradient text="REGISTER" onClick={handleClick} />;
   });
 
 storiesOf('StickerNotification', module).add('stickerNotification', () => {
