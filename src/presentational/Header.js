@@ -58,24 +58,24 @@ class Header extends Component {
     const icons = [
       <div key="1" className={classes.stickerNotification}>
         <StickerNotification text={numberNotifChat} />
-        <img src={ChatLogo} alt="" />
+        <img src={ChatLogo} alt="" className={classes.image} />
       </div>,
       <div key="2" className={classes.stickerNotification}>
         <button onClick={() => this.handleClickEvent('showNotifLike')}>
           <StickerNotification text={numberNotifLike} />
-          <img src={LikeLogo} alt="" />
+          <img src={LikeLogo} alt="" className={classes.image} />
           {showNotifLike && <DropdownMenu />}
         </button>
       </div>,
       <div key="3" className={classes.stickerNotification}>
         <button onClick={() => this.handleClickEvent('showNotifVisit')}>
           <StickerNotification text={numberNotifVisit} />
-          <img src={VisitLogo} alt="" />
+          <img src={VisitLogo} alt="" className={classes.image} />
           {showNotifVisit && <DropdownMenu />}
         </button>
       </div>,
       <div className={classes.stickerNotification}>
-        <img src={account} alt="" />
+        <img src={account} alt="" className={classes.image} />
       </div>,
     ];
 
@@ -134,10 +134,6 @@ const styles = {
         cursor: 'pointer',
       },
     },
-    img: {
-      height: '30px',
-      marginRight: '15px',
-    },
   },
   container: {
     display: 'flex',
@@ -147,6 +143,10 @@ const styles = {
     height: '100px',
     padding: '0 30px',
     position: 'relative',
+  },
+  image: {
+    height: '30px',
+    marginRight: '15px',
   },
   matchaLogo: {
     height: '70px',
