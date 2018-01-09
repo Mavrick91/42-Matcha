@@ -27,9 +27,8 @@ class RegisterPage extends Component {
             </div>
           </div>
         </div>
-        <div className={classes.registerContainer}>
-          <img src={coupleSand} alt="" />
-        </div>
+
+        <div className={classes.registerContainer} />
         <div className={classes.darkBox}>
           <form
             className={classes.registerFormWrapper}
@@ -99,6 +98,7 @@ const styles = {
     display: 'flex',
     position: 'relative',
     height: 'calc(100vh - 161px)',
+    overflow: 'hidden',
   },
   darkBox: {
     position: 'absolute',
@@ -145,11 +145,10 @@ const styles = {
     },
   },
   registerContainer: {
+    backgroundImage: `url(${coupleSand})`,
+    backgroundPosition: 'center',
+    backgroundSize: '100%',
     width: '80%',
-    '& > img': {
-      width: '100%',
-      height: '100%',
-    },
   },
   registerFormWrapper: {
     display: 'flex',
