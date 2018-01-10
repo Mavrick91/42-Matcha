@@ -147,7 +147,8 @@ const styles = {
   registerContainer: {
     backgroundImage: `url(${coupleSand})`,
     backgroundPosition: 'center',
-    backgroundSize: '100%',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
     width: '80%',
   },
   registerFormWrapper: {
