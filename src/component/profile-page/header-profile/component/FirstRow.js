@@ -3,8 +3,10 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
-import femaleIcon from '../../../images/photos_selected/Profile-Page/female-icon.png';
-import iconLocation from '../../../images/photos_selected/Profile-Page/localisation-icon.png';
+import femaleIcon from '../../../../images/photos_selected/Profile-Page/female-icon.png';
+import iconLocation from '../../../../images/photos_selected/Profile-Page/localisation-icon.png';
+import offlineCircle from '../../../../images/photos_selected/others/red-circle.png';
+// import onlineCircle from '../../../../images/photos_selected/others/green-circle.png';
 
 type Props = {
   classes: Object,
@@ -22,7 +24,10 @@ class FirstRow extends Component<Props> {
             <img src={femaleIcon} alt="" />
           </span>
           <span>20 ans</span>
-          <span>Offline since 15-12-2017 at 4:06pm</span>
+          <span>
+            <img className={classes.statusUer} src={offlineCircle} alt="" />{' '}
+            Offline since 15-12-2017 at 4:06pm
+          </span>
         </div>
         <div className={classes.location}>
           <img src={iconLocation} alt="" />
@@ -74,6 +79,9 @@ const styles = {
       marginLeft: '10px',
       fontWeight: 'lighter',
     },
+  },
+  statusUer: {
+    width: '10px',
   },
 };
 

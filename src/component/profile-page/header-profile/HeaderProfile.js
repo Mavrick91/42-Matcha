@@ -7,15 +7,16 @@ import FirstRow from './component/FirstRow';
 import SecondRow from './component/SecondRow';
 import ThirdRow from './component/ThirdRow';
 
-import coupleSea from '../../images/photos_selected/Profile-Page/couple-sea.jpg';
+import coupleSea from '../../../images/photos_selected/Profile-Page/couple-sea.jpg';
 
 type Props = {
   classes: Object,
+  mainPicture: any,
 };
 
 class HeaderProfile extends Component<Props> {
   render() {
-    const { classes } = this.props;
+    const { classes, mainPicture = null } = this.props;
 
     return (
       <div className={classes.container}>
@@ -25,7 +26,9 @@ class HeaderProfile extends Component<Props> {
             <div
               className={classes.profileImage}
               style={{
-                backgroundImage: `url('http://www.wallfizz.com/femmes/jessica-alba/2444-profil-de-jessica-alba-WallFizz.jpg')`,
+                backgroundImage: `url('${
+                  mainPicture == null ? coupleSea : mainPicture
+                }')`,
               }}
             />
             <span>ABOUT</span>
@@ -50,15 +53,19 @@ const styles = {
     backgroundSize: '100%',
     height: '300px',
   },
+  container: {
+    marginBottom: '50px',
+    width: '100%',
+  },
   containerRight: {
     width: '100%',
     marginLeft: '60px',
     marginBottom: '20px',
-    paddingBottom: '40px',
+    paddingBottom: '60px',
     borderBottom: '1px solid rgb(200, 200, 200)',
   },
   containerProfileImage: {
-    height: '315px',
+    height: '340px',
     marginBottom: '20px',
     borderBottom: '1px solid rgb(200, 200, 200)',
     position: 'relative',

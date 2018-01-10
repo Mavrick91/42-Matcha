@@ -3,9 +3,11 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
-import StarRanking from '../../../presentational/StarRanking';
-import ButtonProfile from '../../../presentational/ButtonProfile';
-import favoriteIcon from '../../../images/photos_selected/Profile-Page/favorite-icon.png';
+import StarRanking from '../../../../presentational/StarRanking';
+import ButtonProfile from '../../../../presentational/ButtonProfile';
+import favoriteIcon from '../../../../images/photos_selected/Profile-Page/favorite-icon.png';
+// import favoriteIconActive from '../../../../images/photos_selected/Profile-Page/favorite-icon-activate.png';
+import clickToLikeImage from '../../../../images/photos_selected/Profile-Page/click-to-like.png';
 
 type Props = {
   classes: Object,
@@ -28,11 +30,18 @@ class ThirdRow extends Component<Props> {
               <span>4.5</span> <StarRanking value={4} />
             </div>
           </div>
-          <ButtonProfile text="CHAT" />
+          <ButtonProfile
+            backgroundColor="linear-gradient(to right, #8080ff , #df80ff)"
+            hoverBackgroundColor="linear-gradient(to right, #6600ff , #cc33ff)"
+            text="CHAT"
+            disabled={false}
+          />
           <button>
             <div
               className={classes.containerFavoriteIcon}
-              style={{ backgroundImage: `url(${favoriteIcon})` }}
+              style={{
+                backgroundImage: `url(${favoriteIcon})`,
+              }}
             />
           </button>
         </div>
@@ -40,12 +49,14 @@ class ThirdRow extends Component<Props> {
           <ButtonProfile
             text="BLOCK"
             onClick={this.handleBlock}
-            backgroundColor="rgb(94, 94, 94)"
+            hoverBackgroundColor="rgb(94, 94, 94)"
+            backgroundColor="rgb(192, 192, 192)"
           />
           <ButtonProfile
             text="REPORT"
             onClick={this.handleReport}
             backgroundColor="rgb(192, 192, 192)"
+            hoverBackgroundColor="rgb(94, 94, 94)"
           />
         </div>
       </div>
@@ -54,6 +65,17 @@ class ThirdRow extends Component<Props> {
 }
 
 const styles = {
+  clickToLike: {
+    backgroundImage: `url(${clickToLikeImage})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    top: '-25px',
+    left: '30px',
+    width: '170px',
+    height: '28px',
+  },
   container: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -74,9 +96,11 @@ const styles = {
   containerFavoriteIcon: {
     backgroundPosition: 'center',
     backgroundSize: 'contain',
-    height: '30px',
-    width: '30px',
+    backgroundRepeat: 'no-repeat',
+    height: '40px',
+    width: '40px',
     marginLeft: '15px',
+    position: 'relative',
   },
   containerRanking: {
     marginRight: '15px',

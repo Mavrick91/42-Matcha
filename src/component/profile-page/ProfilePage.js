@@ -1,19 +1,35 @@
 /* @flow */
 
 import React, { Component } from 'react';
+import injectSheet from 'react-jss';
 
-import HeaderProfile from './HeaderProfile';
+import HeaderProfile from './header-profile/HeaderProfile';
+import BodyProfile from './body-profile/BodyProfile';
 
-type Props = {};
+type Props = {
+  classes: Object,
+};
 
 class ProfilePage extends Component<Props> {
   render() {
+    const { classes } = this.props;
+
     return (
-      <div>
+      <div className={classes.containerProfilePage}>
         <HeaderProfile />
+        <BodyProfile />
       </div>
     );
   }
 }
 
-export default ProfilePage;
+const styles = {
+  containerProfilePage: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    width: '1500px',
+    margin: '0 auto',
+  },
+};
+export default injectSheet(styles)(ProfilePage);

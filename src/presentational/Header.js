@@ -97,7 +97,7 @@ class Header extends Component<Props, State> {
           {showNotifVisit && <DropdownMenu />}
         </button>
       </div>,
-      <div className={classes.stickerNotification}>
+      <div key="4" className={classes.stickerNotification}>
         <img src={account} alt="" className={classes.image} />
       </div>,
     ];
