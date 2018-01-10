@@ -15,9 +15,7 @@ class HomePage extends Component {
           <div className={classes.textLeftContainer}>
             “The best online dating site to find love!” - The New York Times
           </div>
-          <div className={classes.imgLeftContainer}>
-            <img src={couple_img} alt="" />
-          </div>
+          <div className={classes.imgLeftContainer} />
         </div>
         <div className={classes.rightContainer}>
           <div className={classes.imgRightContainer}>
@@ -56,11 +54,12 @@ const styles = {
     },
   },
   imgLeftContainer: {
+    backgroundImage: `url(${couple_img})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
     width: '100%',
     height: '100%',
-    '& > img': {
-      width: '100%',
-    },
   },
   msgRegister: {
     display: 'flex',
