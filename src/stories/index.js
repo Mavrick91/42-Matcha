@@ -2,7 +2,9 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
+import maleIcon from '../images/photos_selected/Profile-Page/male-icon.png';
 import lookingGlass from '../images/photos_selected/Profile-Page/looking-glass-heart.png';
+
 import ButtonGradient from '../presentational/ButtonGradient';
 import Footer from '../presentational/Footer';
 import ButtonNormal from '../presentational/ButtonNormal';
@@ -12,7 +14,7 @@ import DropdownMenu from '../presentational/DropdownMenu';
 import StarRanking from '../presentational/StarRanking';
 import ButtonProfile from '../presentational/ButtonProfile';
 import ButtonRegister from '../presentational/ButtonRegister';
-import BoxGender from '../presentational/BoxGender';
+import ContainerBoxProfile from '../presentational/ContainerBoxProfile';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -82,19 +84,48 @@ storiesOf('Star', module).add('ranking', () => {
 });
 
 storiesOf('Box', module).add('gender', () => {
+  const style = {
+    backgroundImage: `url(${maleIcon})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+    height: '100px',
+  };
+
   return (
     <div>
-      <BoxGender />
+      <ContainerBoxProfile title="I AM">
+        <div style={style} />
+      </ContainerBoxProfile>
       <br />
-      <BoxGender
-        gender="male"
+      <ContainerBoxProfile
         title={
           <span>
-            <img src={lookingGlass} alt="" />
+            <img
+              src={lookingGlass}
+              alt=""
+              style={{
+                width: '20px',
+                marginRight: '5px',
+                verticalAlign: 'bottom',
+              }}
+            />
             SEEKING
           </span>
         }
-      />
+      >
+        <div style={style} />
+      </ContainerBoxProfile>
+      <br />
+      <ContainerBoxProfile title="BIO" width="600px">
+        <div>
+          je m'apelle Ornella, j'ai 20 ans Je suis étudiante et je suis a la
+          recherche d'un homme ayant la vingtaine qui saura me faire rire au
+          quotidien. Je recherche un homme qui a confiance en lui, marrant,
+          intelligent, qui aime voyager et qui apprecie la compagnie des chiens
+        </div>
+      </ContainerBoxProfile>
     </div>
   );
 });
