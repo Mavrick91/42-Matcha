@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
+
+import lookingGlass from '../images/photos_selected/Profile-Page/looking-glass-heart.png';
 import ButtonGradient from '../presentational/ButtonGradient';
 import Footer from '../presentational/Footer';
 import ButtonNormal from '../presentational/ButtonNormal';
@@ -10,6 +12,7 @@ import DropdownMenu from '../presentational/DropdownMenu';
 import StarRanking from '../presentational/StarRanking';
 import ButtonProfile from '../presentational/ButtonProfile';
 import ButtonRegister from '../presentational/ButtonRegister';
+import BoxGender from '../presentational/BoxGender';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -74,6 +77,24 @@ storiesOf('Star', module).add('ranking', () => {
       <StarRanking value={1} />
       <br />
       <StarRanking value={4} />
+    </div>
+  );
+});
+
+storiesOf('Box', module).add('gender', () => {
+  return (
+    <div>
+      <BoxGender />
+      <br />
+      <BoxGender
+        gender="male"
+        title={
+          <span>
+            <img src={lookingGlass} alt="" />
+            SEEKING
+          </span>
+        }
+      />
     </div>
   );
 });
