@@ -1,7 +1,24 @@
-import React, { Component } from 'react';
+/* @flow */
+
+import * as React from 'react';
 import injectSheet from 'react-jss';
 
-class BoxGender extends Component {
+type Props = {
+  classes: Object,
+  title?: React.Node,
+  children: React.Node,
+  onClick: Function,
+  width: string,
+  height: string,
+};
+
+class BoxGender extends React.Component<Props> {
+  static defaultProps = {
+    title: <span>TITLE</span>,
+    width: '275px',
+    height: '100px',
+  };
+
   render() {
     const { classes, title, children, width, height } = this.props;
 
@@ -40,12 +57,6 @@ const styles = {
     background: 'white',
     padding: '0 10px',
   },
-};
-
-BoxGender.defaultProps = {
-  title: <span>TITLE</span>,
-  width: '275px',
-  height: '100px',
 };
 
 export default injectSheet(styles)(BoxGender);

@@ -1,3 +1,5 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
@@ -7,7 +9,11 @@ import ThirdRow from './component/ThirdRow';
 
 import coupleSea from '../../images/photos_selected/Profile-Page/couple-sea.jpg';
 
-class HeaderProfile extends Component {
+type Props = {
+  classes: Object,
+};
+
+class HeaderProfile extends Component<Props> {
   render() {
     const { classes } = this.props;
 

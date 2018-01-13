@@ -1,8 +1,12 @@
+/* @flow */
+
 import React, { Component } from 'react';
 
 import HeaderProfile from './HeaderProfile';
 
-class ProfilePage extends Component {
+type Props = {};
+
+class ProfilePage extends Component<Props> {
   render() {
     return (
       <div>

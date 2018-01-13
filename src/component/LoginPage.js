@@ -1,19 +1,31 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
 import coupleFlower from '../images/photos_selected/Login-Page/couple-flower-copy.jpg';
 
-class LoginPage extends Component {
+type Props = {
+  history: Object,
+  classes: Object,
+};
+
+type State = {
+  username: string,
+  password: string,
+};
+
+class LoginPage extends Component<Props, State> {
   state = {
     username: '',
     password: '',
   };
 
-  onSubmitForm = e => {
+  onSubmitForm = (e): void => {
     e.preventDefault();
   };
 
-  redirectToForgotPassword = () => {
+  redirectToForgotPassword = (): void => {
     const { history } = this.props;
 
     history.push('/forgetPassword');
@@ -28,7 +40,9 @@ class LoginPage extends Component {
           <form onSubmit={this.onSubmitForm}>
             <input
               type="text"
-              onChange={e => this.setState({ username: e.target.value })}
+              onChange={(e): void =>
+                this.setState({ username: e.target.value })
+              }
               placeholder="Username"
             />
             <input

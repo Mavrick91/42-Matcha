@@ -1,7 +1,13 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
-class DropdownMenu extends Component {
+type Props = {
+  classes: Object,
+};
+
+class DropdownMenu extends Component<Props> {
   render() {
     const { classes } = this.props;
     const tmp = [

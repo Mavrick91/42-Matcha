@@ -1,7 +1,15 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
-class ButtonGradient extends Component {
+type Props = {
+  classes: Object,
+  text: string,
+  onClick: Function,
+};
+
+class ButtonGradient extends Component<Props> {
   render() {
     const { classes, text, onClick } = this.props;
 

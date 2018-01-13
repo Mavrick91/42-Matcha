@@ -1,7 +1,15 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
-class ButtonRegister extends Component {
+type Props = {
+  classes: Object,
+  text: string,
+  onClick: Function,
+};
+
+class ButtonRegister extends Component<Props> {
   render() {
     const { classes, text, onClick } = this.props;
 
@@ -17,7 +25,7 @@ const styles = {
   container: {
     display: 'inline-flex',
     background: '#F9526A',
-    padding: '17px 50px'
+    padding: '17px 50px',
   },
   buttonClass: {
     background: 'none',
@@ -28,9 +36,9 @@ const styles = {
     letterSpacing: '0.5px',
     outline: 'none',
     '&:hover': {
-      cursor: 'pointer'
-    }
-  }
+      cursor: 'pointer',
+    },
+  },
 };
 
 export default injectSheet(styles)(ButtonRegister);

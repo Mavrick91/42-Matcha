@@ -7,6 +7,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "flow-bin": "^0.63.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-jss": "^8.2.0",
@@ -24,14 +25,18 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "flow": "flow  && echo 'Flow pass ✅'",
+    "eslint": "./node_modules/.bin/eslint src/**/*.js && echo 'Eslint pass ✅'"
   },
   "proxy": "http://localhost:3001/",
+  "pre-commit": ["flow", "eslint"],
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.3",
     "@storybook/addon-links": "^3.3.3",
     "@storybook/react": "^3.3.3",
     "babel-cli": "^6.26.0",
+    "pre-commit": "^1.2.2",
     "react-redux": "^5.0.6"
   }
 }

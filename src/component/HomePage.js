@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+/* @flow */
+
+import * as React from 'react';
 import injectSheet from 'react-jss';
 import ButtonGradient from '../presentational/ButtonGradient';
 
-import couple_img from '../images/photos_selected/Home-Page/photo-index-1.jpeg';
+import couple_img from '../images/photos_selected/Home-Page/photo-index.jpg';
 import match_img from '../images/photos_selected/Home-Page/match-msg.jpg';
 
-class HomePage extends Component {
+type Props = {
+  classes: Object,
+  history: Object,
+};
+
+class HomePage extends React.Component<Props> {
   render() {
     const { classes, history } = this.props;
 

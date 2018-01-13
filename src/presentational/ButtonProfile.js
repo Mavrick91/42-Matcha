@@ -1,8 +1,23 @@
+/* @flow */
+
 import React, { Component } from 'react';
 
 import injectSheet from 'react-jss';
 
-class ButtonProfile extends Component {
+type Props = {
+  classes: Object,
+  text: string,
+  onClick: Function,
+  backgroundColor: string,
+};
+
+class ButtonProfile extends Component<Props> {
+  static defaultProps = {
+    text: 'text here',
+    onClick: () => console.log('Gimme me function clikc'),
+    backgroundColor: 'rgb(253, 211, 127)',
+  };
+
   render() {
     const { classes, onClick, text, backgroundColor } = this.props;
 
@@ -18,7 +33,7 @@ class ButtonProfile extends Component {
           {text}
         </button>
       </div>
-    );	
+    );
   }
 }
 
@@ -31,12 +46,6 @@ const styles = {
     color: 'white',
     border: 'none',
   },
-};
-
-ButtonProfile.defaultProps = {
-  text: 'text here',
-  onClick: () => console.log('Gimme me function clikc'),
-  backgroundColor: 'rgb(253, 211, 127)',
 };
 
 export default injectSheet(styles)(ButtonProfile);

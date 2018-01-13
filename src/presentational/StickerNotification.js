@@ -1,7 +1,14 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
-class StickerNotification extends Component {
+type Props = {
+  classes: Object,
+  text: string,
+};
+
+class StickerNotification extends Component<Props> {
   render() {
     const { classes, text } = this.props;
 
