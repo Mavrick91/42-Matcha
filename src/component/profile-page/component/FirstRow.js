@@ -1,10 +1,16 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
 import femaleIcon from '../../../images/photos_selected/Profile-Page/female-icon.png';
 import iconLocation from '../../../images/photos_selected/Profile-Page/localisation-icon.png';
 
-class FirstRow extends Component {
+type Props = {
+  classes: Object,
+};
+
+class FirstRow extends Component<Props> {
   render() {
     const { classes } = this.props;
 

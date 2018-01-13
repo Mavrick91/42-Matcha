@@ -1,3 +1,5 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import injectSheet from 'react-jss';
@@ -9,7 +11,12 @@ import HomePage from './HomePage';
 import RegisterPage from './RegisterPage';
 import ProfilePage from './profile-page/ProfilePage';
 
-class AppContainer extends Component {
+type Props = {
+  location: Object,
+  history: Object,
+};
+
+class AppContainer extends Component<Props> {
   render() {
     const { location: { pathname }, history } = this.props;
 

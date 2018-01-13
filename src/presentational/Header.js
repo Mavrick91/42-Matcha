@@ -1,3 +1,5 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
@@ -11,7 +13,28 @@ import ButtonNormal from './ButtonNormal';
 import StickerNotification from './StickerNotification';
 import DropdownMenu from './DropdownMenu';
 
-class Header extends Component {
+type Props = {
+  pathname: string,
+  classes: Object,
+  numberNotifChat: number,
+  numberNotifLike: number,
+  numberNotifVisit: number,
+  history: Object,
+};
+
+type State = {
+  showIcons: boolean,
+  showNotifLike: boolean,
+  showNotifVisit: boolean,
+};
+
+class Header extends Component<Props, State> {
+  static defaultProps = {
+    numberNotifChat: '1',
+    numberNotifLike: '0',
+    numberNotifVisit: '14',
+  };
+
   state = {
     showIcons: false,
     showNotifLike: false,
@@ -117,11 +140,6 @@ class Header extends Component {
     );
   }
 }
-Header.defaultProps = {
-  numberNotifChat: '1',
-  numberNotifLike: '0',
-  numberNotifVisit: '14',
-};
 
 const styles = {
   '@global': {

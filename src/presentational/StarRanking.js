@@ -1,7 +1,17 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 
-class StarRanking extends Component {
+type Props = {
+  value: number,
+};
+
+class StarRanking extends Component<Props> {
+  static defaultProps = {
+    value: 0,
+  };
+
   render() {
     const { value } = this.props;
 
@@ -11,7 +21,4 @@ class StarRanking extends Component {
   }
 }
 
-StarRanking.defaultProps = {
-  value: 0,
-};
 export default StarRanking;

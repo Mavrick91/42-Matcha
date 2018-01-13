@@ -1,3 +1,5 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
@@ -5,7 +7,11 @@ import StarRanking from '../../../presentational/StarRanking';
 import ButtonProfile from '../../../presentational/ButtonProfile';
 import favoriteIcon from '../../../images/photos_selected/Profile-Page/favorite-icon.png';
 
-class ThirdRow extends Component {
+type Props = {
+  classes: Object,
+};
+
+class ThirdRow extends Component<Props> {
   handleBlock = () => {};
 
   handleReport = () => {};

@@ -1,7 +1,13 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
-class Footer extends Component {
+type Props = {
+  classes: Object,
+};
+
+class Footer extends Component<Props> {
   render() {
     const { classes } = this.props;
 

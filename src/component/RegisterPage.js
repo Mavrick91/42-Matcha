@@ -1,3 +1,5 @@
+/* @flow */
+
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
@@ -5,7 +7,18 @@ import coupleSand from '../images/photos_selected/Register-Page/couple-hug-beach
 import certification from '../images/photos_selected/Register-Page/certified.png';
 import geometricHeart from '../images/photos_selected/Register-Page/geometric-heart.jpg';
 
-class RegisterPage extends Component {
+type Props = {
+  classes: Object,
+};
+
+type State = {
+  firstname: string,
+  lastname: string,
+  username: string,
+  password: string,
+};
+
+class RegisterPage extends Component<Props, State> {
   render() {
     const { classes } = this.props;
 
@@ -30,10 +43,7 @@ class RegisterPage extends Component {
 
         <div className={classes.registerContainer} />
         <div className={classes.darkBox}>
-          <form
-            className={classes.registerFormWrapper}
-            onSubmit={this.onSubmitForm}
-          >
+          <form className={classes.registerFormWrapper}>
             <div className={classes.registerTitle}>
               More ways to meet people who worth it !
             </div>

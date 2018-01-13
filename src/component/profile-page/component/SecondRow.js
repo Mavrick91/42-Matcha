@@ -1,8 +1,14 @@
+/* @flow */
+
 import React, { Component } from 'react';
 
 import injectSheet from 'react-jss';
 
-class SecondRow extends Component {
+type Props = {
+  classes: Object,
+};
+
+class SecondRow extends Component<Props> {
   render() {
     const { classes } = this.props;
 
