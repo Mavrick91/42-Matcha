@@ -30,9 +30,9 @@ type State = {
 
 class Header extends Component<Props, State> {
   static defaultProps = {
-    numberNotifChat: '1',
+    numberNotifChat: '0',
     numberNotifLike: '0',
-    numberNotifVisit: '14',
+    numberNotifVisit: '0',
   };
 
   state = {
