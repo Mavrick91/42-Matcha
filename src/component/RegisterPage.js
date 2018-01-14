@@ -11,13 +11,11 @@ import LocationRegister from './LocationRegister';
 
 type Props = {
   classes: Object,
+  history: Object,
 };
 
 type State = {
-  firstname: string,
-  lastname: string,
-  username: string,
-  password: string,
+  locationForm: boolean,
 };
 
 class RegisterPage extends Component<Props, State> {
