@@ -15,6 +15,8 @@ import StarRanking from '../presentational/StarRanking';
 import ButtonProfile from '../presentational/ButtonProfile';
 import ButtonForm from '../presentational/ButtonForm';
 import ContainerBoxProfile from '../presentational/ContainerBoxProfile';
+import InfoRegister from '../component/InfoRegister';
+import LocationRegister from '../component/LocationRegister';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -126,4 +128,12 @@ storiesOf('Box', module).add('gender', () => {
       </ContainerBoxProfile>
     </div>
   );
+});
+
+storiesOf('InfoRegister', module).add('InfoRegister', () => {
+  return <InfoRegister />;
+});
+
+storiesOf('LocationRegister', module).add('locationRegister', () => {
+  return <LocationRegister />;
 });

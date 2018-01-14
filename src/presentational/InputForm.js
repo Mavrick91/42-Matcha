@@ -10,7 +10,8 @@ type Props = {
   value?: string,
   style?: Object,
   placeholder?: string,
-  onChange?: Function
+  onChange?: Function,
+  width?: string,
 };
 
 class InputForm extends Component<Props> {
@@ -25,13 +26,12 @@ const styles = {
   container: {
     width: '165px',
     border: 'none',
-    height: '27px',
-    padding: '20px 35px',
     outline: 'none',
     fontSize: '12px',
     textAlign: 'center',
-    margin: '0 20px'
-  }
+    margin: '0 20px',
+    height: '40px',
+  },
 };
 
 export default injectSheet(styles)(InputForm);

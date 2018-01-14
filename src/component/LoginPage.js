@@ -9,18 +9,18 @@ import coupleFlower from '../images/photos_selected/Login-Page/couple-flower-cop
 
 type Props = {
   history: Object,
-  classes: Object
+  classes: Object,
 };
 
 type State = {
   username: string,
-  password: string
+  password: string,
 };
 
 class LoginPage extends Component<Props, State> {
   state = {
     username: '',
-    password: ''
+    password: '',
   };
 
   onSubmitForm = (e): void => {
@@ -40,22 +40,34 @@ class LoginPage extends Component<Props, State> {
       <div className={classes.container}>
         <div className={classes.darkBox}>
           <form onSubmit={this.onSubmitForm}>
-            <InputForm
-              type="text"
-              onChange={(e): void =>
-                this.setState({ username: e.target.value })
-              }
-              placeholder="Username"
-            />
-            <InputForm
-              type="password"
-              onChange={e => this.setState({ password: e.target.value })}
-              placeholder="Password"
-            />
+            <div className={classes.wrapperInput}>
+              <InputForm
+                style={{
+                  width: '250px',
+                }}
+                type="text"
+                onChange={(e): void =>
+                  this.setState({ username: e.target.value })
+                }
+                placeholder="Username"
+              />
+            </div>
+            <div className={classes.wrapperInput}>
+              <InputForm
+                style={{
+                  width: '250px',
+                }}
+                type="password"
+                onChange={e => this.setState({ password: e.target.value })}
+                placeholder="Password"
+              />
+            </div>
             <ButtonForm
+              style={{
+                width: '250px',
+              }}
               type="submit"
-              value="LOGIN"
-              className={classes.submitButton}
+              text="LOGIN"
             />
             <button
               className={classes.forgotPassword}
@@ -75,6 +87,7 @@ const styles = {
     form: {
       display: 'flex',
       flexDirection: 'column',
+      alignItems: 'center',
       paddingTop: '100px',
       '& > input': {
         padding: '10px',
@@ -82,9 +95,9 @@ const styles = {
         outline: 'none',
         border: 'none',
         textAlign: 'center',
-        fontSize: '12px'
-      }
-    }
+        fontSize: '12px',
+      },
+    },
   },
   container: {
     backgroundImage: `url(${coupleFlower})`,
@@ -94,19 +107,19 @@ const styles = {
     backgroundPosition: 'center',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   darkBox: {
     background: 'rgba(0, 0, 0, 0.2)',
     height: '400px',
-    width: '400px'
+    width: '400px',
   },
   forgotPassword: {
     background: '#E7E7E7',
     padding: '10px',
-    margin: '15px 60px',
+    marginTop: '30px',
     outline: 'none',
-    fontSize: '12px'
+    fontSize: '12px',
   },
   submitButton: {
     margin: '15px 60px',
@@ -114,9 +127,12 @@ const styles = {
     color: 'white',
     fontSize: '12px',
     '&:hover': {
-      cursor: 'pointer'
-    }
-  }
+      cursor: 'pointer',
+    },
+  },
+  wrapperInput: {
+    marginBottom: '30px',
+  },
 };
 
 export default injectSheet(styles)(LoginPage);

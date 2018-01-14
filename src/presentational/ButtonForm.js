@@ -8,10 +8,17 @@ type Props = {
   text: string,
   onClick: Function,
   type?: string,
-  value?: string
+  value?: string,
+  style?: Object,
 };
 
 class ButtonForm extends Component<Props> {
+  static defaultProps = {
+    style: {
+      width: '250px',
+    },
+  };
+
   render() {
     const { classes, text } = this.props;
 
@@ -25,9 +32,11 @@ class ButtonForm extends Component<Props> {
 
 const styles = {
   container: {
+    justifyContent: 'center',
     display: 'inline-flex',
     background: '#F9526A',
-    padding: '17px 50px'
+    padding: '17px 50px',
+    width: '100%',
   },
   buttonClass: {
     background: 'none',
@@ -37,10 +46,11 @@ const styles = {
     fontSize: '14px',
     letterSpacing: '0.5px',
     outline: 'none',
+    width: '100%',
     '&:hover': {
-      cursor: 'pointer'
-    }
-  }
+      cursor: 'pointer',
+    },
+  },
 };
 
 export default injectSheet(styles)(ButtonForm);
