@@ -17,6 +17,7 @@ import ButtonForm from '../presentational/ButtonForm';
 import ContainerBoxProfile from '../presentational/ContainerBoxProfile';
 import InfoRegister from '../component/InfoRegister';
 import LocationRegister from '../component/LocationRegister';
+import ErrorField from '../presentational/ErrorField';
 
 const handleClick = () => {
   console.log('functionOnClick');
@@ -90,7 +91,7 @@ storiesOf('Box', module).add('gender', () => {
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     width: '100%',
-    height: '100px'
+    height: '100px',
   };
 
   return (
@@ -108,7 +109,7 @@ storiesOf('Box', module).add('gender', () => {
               style={{
                 width: '20px',
                 marginRight: '5px',
-                verticalAlign: 'bottom'
+                verticalAlign: 'bottom',
               }}
             />
             SEEKING
@@ -130,10 +131,14 @@ storiesOf('Box', module).add('gender', () => {
   );
 });
 
-storiesOf('InfoRegister', module).add('InfoRegister', () => {
-  return <InfoRegister />;
-});
+storiesOf('InfoRegister', module)
+  .add('InfoRegister', () => {
+    return <InfoRegister />;
+  })
+  .add('locationRegister', () => {
+    return <LocationRegister />;
+  });
 
-storiesOf('LocationRegister', module).add('locationRegister', () => {
-  return <LocationRegister />;
+storiesOf('Error', module).add('Field', () => {
+  return <ErrorField text="Empty username" />;
 });
