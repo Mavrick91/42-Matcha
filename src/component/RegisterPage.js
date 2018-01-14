@@ -8,16 +8,16 @@ import certification from '../images/photos_selected/Register-Page/certified.png
 import geometricHeart from '../images/photos_selected/Register-Page/geometric-heart.jpg';
 import InfoRegister from './InfoRegister';
 import LocationRegister from './LocationRegister';
+import { connect } from 'react-redux';
 
 type Props = {
   classes: Object,
+  dispatch: Function,
+  history: Object,
 };
 
 type State = {
-  firstname: string,
-  lastname: string,
-  username: string,
-  password: string,
+  locationForm: boolean,
 };
 
 class RegisterPage extends Component<Props, State> {
@@ -26,13 +26,20 @@ class RegisterPage extends Component<Props, State> {
   };
 
   render() {
-    const { classes, history } = this.props;
+    const { classes, history, dispatch } = this.props;
+    console.log('this.props: ', this.props);
     const { locationForm } = this.state;
 
     const correctForm = locationForm ? (
-      <LocationRegister onClick={() => history.push('/login')} />
+      <LocationRegister
+        dispatch={dispatch}
+        tonClick={() => history.push('/login')}
+      />
     ) : (
-      <InfoRegister onClick={() => this.setState({ locationForm: true })} />
+      <InfoRegister
+        dispatch={dispatch}
+        onClick={() => this.setState({ locationForm: true })}
+      />
     );
 
     return (
@@ -154,7 +161,6 @@ const styles = {
     fontWeight: 'Bold',
   },
   registerButtonSubmit: {
-    // margin: 'auto',
     background: '#F9526A',
     color: 'white',
     marginTop: '15px',
@@ -171,4 +177,4 @@ const styles = {
   },
 };
 
-export default injectSheet(styles)(RegisterPage);
+export default connect()(injectSheet(styles)(RegisterPage));

@@ -10,6 +10,7 @@ import InputForm from '../presentational/InputForm';
 type Props = {
   classes: Object,
   onClick: Function,
+  dispatch: Function,
 };
 
 type State = {
@@ -65,6 +66,11 @@ class LocationRegister extends Component<Props, State> {
     }
   }
 
+  onSubmit(event) {
+    event.preventDefault();
+    const { value } = this.state;
+  }
+
   render() {
     const { classes, onClick } = this.props;
     const { disabled, value } = this.state;
@@ -72,18 +78,20 @@ class LocationRegister extends Component<Props, State> {
 
     return (
       <div className={classes.container}>
-        <div className={classes.inputLocation}>
-          <InputForm
-            type="text"
-            disabled={disabled}
-            style={{
-              backgroundColor,
-              width: '300px',
-            }}
-            value={value}
-          />
-        </div>
-        <ButtonForm text="REGISTER" onClick={onClick} />
+        <form onSubmit={this.onSubmit.bind(this)}>
+          <div className={classes.inputLocation}>
+            <InputForm
+              type="text"
+              disabled={disabled}
+              style={{
+                backgroundColor,
+                width: '300px',
+              }}
+              value={value}
+            />
+          </div>
+          <ButtonForm type="submit" text="REGISTER" />
+        </form>
       </div>
     );
   }

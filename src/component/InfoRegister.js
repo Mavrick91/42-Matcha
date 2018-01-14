@@ -5,10 +5,12 @@ import injectSheet from 'react-jss';
 
 import ButtonForm from '../presentational/ButtonForm';
 import InputForm from '../presentational/InputForm';
+import { signup } from '../actions/signup/action_signup';
 
 type Props = {
   classes: Object,
   onClick: Function,
+  dispatch: Function,
 };
 
 type State = {
@@ -27,59 +29,68 @@ class InfoRegister extends Component<Props, State> {
     email: '',
   };
 
+  submitForm(event) {
+    event.preventDefault();
+
+    this.props.dispatch(signup({ ...this.state }));
+    this.props.onClick();
+  }
+
   render() {
     const { classes, onClick } = this.props;
 
     return (
       <div className={classes.container}>
-        <div className={classes.inputRadioWrapper}>
-          <div className={classes.eachRadioWrapper}>I AM</div>
-          <div className={classes.eachRadioWrapper}>
-            <input id="woman" type="radio" name="gender" value="woman" />
-            <span />
-            <label htmlFor="woman">A WOMAN</label>
+        <form onSubmit={this.submitForm.bind(this)}>
+          <div className={classes.inputRadioWrapper}>
+            <div className={classes.eachRadioWrapper}>I AM</div>
+            <div className={classes.eachRadioWrapper}>
+              <input id="woman" type="radio" name="gender" value="woman" />
+              <span />
+              <label htmlFor="woman">A WOMAN</label>
+            </div>
+            <div className={classes.eachRadioWrapper}>
+              <input id="man" type="radio" name="gender" value="male" />
+              <span />
+              <label htmlFor="man">A MAN</label>
+            </div>
           </div>
-          <div className={classes.eachRadioWrapper}>
-            <input id="man" type="radio" name="gender" value="male" />
-            <span />
-            <label htmlFor="man">A MAN</label>
+          <div className={classes.inputWrapper}>
+            <InputForm
+              type="text"
+              placeholder="First Name"
+              onChange={e => this.setState({ firstname: e.target.value })}
+            />
+            <InputForm
+              type="text"
+              placeholder="Last Name"
+              onChange={e => this.setState({ lastname: e.target.value })}
+            />
           </div>
-        </div>
-        <div className={classes.inputWrapper}>
-          <InputForm
-            type="text"
-            placeholder="First Name"
-            onChange={e => this.setState({ firstname: e.target.value })}
-          />
-          <InputForm
-            type="text"
-            placeholder="Last Name"
-            onChange={e => this.setState({ lastname: e.target.value })}
-          />
-        </div>
-        <div className={classes.inputWrapper}>
-          <InputForm
-            type="text"
-            placeholder="Username"
-            onChange={e => this.setState({ username: e.target.value })}
-          />
-          <InputForm
-            type="password"
-            placeholder="Password"
-            onChange={e => this.setState({ password: e.target.value })}
-          />
-        </div>
-        <div className={`${classes.inputWrapper} ${classes.inputEmail}`}>
-          <InputForm
-            type="email"
-            placeholder="Email"
-            onChange={e => this.setState({ email: e.target.value })}
-            style={{
-              width: '370px',
-            }}
-          />
-        </div>
-        <ButtonForm text="CONTINUE" onClick={onClick} />
+          <div className={classes.inputWrapper}>
+            <InputForm
+              type="text"
+              placeholder="Username"
+              onChange={e => this.setState({ username: e.target.value })}
+            />
+            <InputForm
+              type="password"
+              placeholder="Password"
+              onChange={e => this.setState({ password: e.target.value })}
+            />
+          </div>
+          <div className={`${classes.inputWrapper} ${classes.inputEmail}`}>
+            <InputForm
+              type="email"
+              placeholder="Email"
+              onChange={e => this.setState({ email: e.target.value })}
+              style={{
+                width: '370px',
+              }}
+            />
+          </div>
+          <ButtonForm type="submit" text="CONTINUE" />
+        </form>
       </div>
     );
   }
