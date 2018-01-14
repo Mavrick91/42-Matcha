@@ -3,22 +3,24 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 
+import InputForm from '../presentational/InputForm';
+import ButtonForm from '../presentational/ButtonForm';
 import coupleFlower from '../images/photos_selected/Login-Page/couple-flower-copy.jpg';
 
 type Props = {
   history: Object,
-  classes: Object,
+  classes: Object
 };
 
 type State = {
   username: string,
-  password: string,
+  password: string
 };
 
 class LoginPage extends Component<Props, State> {
   state = {
     username: '',
-    password: '',
+    password: ''
   };
 
   onSubmitForm = (e): void => {
@@ -38,19 +40,19 @@ class LoginPage extends Component<Props, State> {
       <div className={classes.container}>
         <div className={classes.darkBox}>
           <form onSubmit={this.onSubmitForm}>
-            <input
+            <InputForm
               type="text"
               onChange={(e): void =>
                 this.setState({ username: e.target.value })
               }
               placeholder="Username"
             />
-            <input
+            <InputForm
               type="password"
               onChange={e => this.setState({ password: e.target.value })}
               placeholder="Password"
             />
-            <input
+            <ButtonForm
               type="submit"
               value="LOGIN"
               className={classes.submitButton}
@@ -80,9 +82,9 @@ const styles = {
         outline: 'none',
         border: 'none',
         textAlign: 'center',
-        fontSize: '12px',
-      },
-    },
+        fontSize: '12px'
+      }
+    }
   },
   container: {
     backgroundImage: `url(${coupleFlower})`,
@@ -92,19 +94,19 @@ const styles = {
     backgroundPosition: 'center',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   darkBox: {
     background: 'rgba(0, 0, 0, 0.2)',
     height: '400px',
-    width: '400px',
+    width: '400px'
   },
   forgotPassword: {
     background: '#E7E7E7',
     padding: '10px',
     margin: '15px 60px',
     outline: 'none',
-    fontSize: '12px',
+    fontSize: '12px'
   },
   submitButton: {
     margin: '15px 60px',
@@ -112,9 +114,9 @@ const styles = {
     color: 'white',
     fontSize: '12px',
     '&:hover': {
-      cursor: 'pointer',
-    },
-  },
+      cursor: 'pointer'
+    }
+  }
 };
 
 export default injectSheet(styles)(LoginPage);

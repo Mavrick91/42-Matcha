@@ -7,14 +7,16 @@ type Props = {
   classes: Object,
   text: string,
   onClick: Function,
+  type?: string,
+  value?: string
 };
 
-class ButtonRegister extends Component<Props> {
+class ButtonForm extends Component<Props> {
   render() {
-    const { classes, text, onClick } = this.props;
+    const { classes, text } = this.props;
 
     return (
-      <button onClick={onClick} className={classes.buttonClass}>
+      <button className={classes.buttonClass} {...this.props}>
         <div className={classes.container}>{text}</div>
       </button>
     );
@@ -25,7 +27,7 @@ const styles = {
   container: {
     display: 'inline-flex',
     background: '#F9526A',
-    padding: '17px 50px',
+    padding: '17px 50px'
   },
   buttonClass: {
     background: 'none',
@@ -36,9 +38,9 @@ const styles = {
     letterSpacing: '0.5px',
     outline: 'none',
     '&:hover': {
-      cursor: 'pointer',
-    },
-  },
+      cursor: 'pointer'
+    }
+  }
 };
 
-export default injectSheet(styles)(ButtonRegister);
+export default injectSheet(styles)(ButtonForm);

@@ -13,7 +13,7 @@ import Header from '../presentational/Header';
 import DropdownMenu from '../presentational/DropdownMenu';
 import StarRanking from '../presentational/StarRanking';
 import ButtonProfile from '../presentational/ButtonProfile';
-import ButtonRegister from '../presentational/ButtonRegister';
+import ButtonForm from '../presentational/ButtonForm';
 import ContainerBoxProfile from '../presentational/ContainerBoxProfile';
 
 const handleClick = () => {
@@ -50,12 +50,10 @@ storiesOf('Button', module)
       </div>
     );
   })
-  .add('Register-Form1', () => {
-    return (
-      <ButtonRegister text="CONTINUE REGISTRATION" onClick={handleClick} />
-    );
+  .add('Register form', () => {
+    return <ButtonForm text="CONTINUE REGISTRATION" onClick={handleClick} />;
   })
-  .add('Register-Form2', () => {
+  .add('Register gradient', () => {
     return <ButtonGradient text="REGISTER" onClick={handleClick} />;
   });
 
@@ -90,7 +88,7 @@ storiesOf('Box', module).add('gender', () => {
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     width: '100%',
-    height: '100px',
+    height: '100px'
   };
 
   return (
@@ -108,7 +106,7 @@ storiesOf('Box', module).add('gender', () => {
               style={{
                 width: '20px',
                 marginRight: '5px',
-                verticalAlign: 'bottom',
+                verticalAlign: 'bottom'
               }}
             />
             SEEKING
