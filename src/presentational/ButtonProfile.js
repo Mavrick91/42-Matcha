@@ -1,6 +1,6 @@
 /* @flow */
 
-import React, { Component } from 'react';
+import React from 'react';
 
 import injectSheet from 'react-jss';
 
@@ -9,42 +9,40 @@ type Props = {
   text: string,
   onClick: Function,
   backgroundColor: string,
+  disabled: boolean,
 };
 
-class ButtonProfile extends Component<Props> {
-  static defaultProps = {
-    text: 'text here',
-    onClick: () => console.log('Gimme me function clikc'),
-    backgroundColor: 'rgb(253, 211, 127)',
-  };
+const ButtonProfile = (props: Props) => {
+  return (
+    <div>
+      <button
+        onClick={props.onClick}
+        className={props.classes.button}
+        disabled={props.disabled}
+      >
+        {props.text}
+      </button>
+    </div>
+  );
+};
 
-  render() {
-    const { classes, onClick, text, backgroundColor } = this.props;
-
-    return (
-      <div>
-        <button
-          onClick={onClick}
-          className={classes.button}
-          style={{
-            backgroundColor,
-          }}
-        >
-          {text}
-        </button>
-      </div>
-    );
-  }
-}
+ButtonProfile.defaultProps = {
+  disabled: false,
+};
 
 const styles = {
   button: {
     padding: '10px 25px',
     borderRadius: '10px',
     fontFamily: 'sans-serif',
-    background: 'rgb(253, 211, 127)',
+    background: props => props.backgroundColor,
     color: 'white',
     border: 'none',
+    '&:hover': {
+      background: props =>
+        props.disabled ? props.backgroundColor : props.hoverBackgroundColor,
+      cursor: props => (props.disabled ? 'no-drop' : ''),
+    },
   },
 };
 
