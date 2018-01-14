@@ -8,14 +8,14 @@ import certification from '../images/photos_selected/Register-Page/certified.png
 import geometricHeart from '../images/photos_selected/Register-Page/geometric-heart.jpg';
 
 type Props = {
-  classes: Object,
+  classes: Object
 };
 
 type State = {
   firstname: string,
   lastname: string,
   username: string,
-  password: string,
+  password: string
 };
 
 class RegisterPage extends Component<Props, State> {
@@ -95,20 +95,20 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '130px',
+    width: '130px'
   },
   asideImg: {
     width: '100px',
     '& > img': {
       width: '100%',
-      height: '100%',
-    },
+      height: '100%'
+    }
   },
   container: {
     display: 'flex',
     position: 'relative',
     height: 'calc(100vh - 161px)',
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   darkBox: {
     position: 'absolute',
@@ -120,7 +120,7 @@ const styles = {
     transform: 'translate(-50%, -50%)',
     width: '490px',
     height: '490px',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)'
   },
   eachRadioWrapper: {
     color: 'white',
@@ -128,18 +128,18 @@ const styles = {
     marginBottom: '10px',
     fontFamily: 'MS Serif, New York, sans-serif',
     '& > input': {
-      marginRight: '15px',
-    },
+      marginRight: '15px'
+    }
   },
   infoContainer: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    width: '20%',
+    width: '20%'
   },
   inputRadioWrapper: {
-    display: 'flex',
+    display: 'flex'
   },
   inputWrapper: {
     display: 'flex',
@@ -151,20 +151,20 @@ const styles = {
       outline: 'none',
       fontSize: '12px',
       textAlign: 'center',
-      margin: '15px 20px',
-    },
+      margin: '15px 20px'
+    }
   },
   registerContainer: {
     backgroundImage: `url(${coupleSand})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    width: '80%',
+    width: '80%'
   },
   registerFormWrapper: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   registerTitle: {
     width: '350px',
@@ -173,7 +173,7 @@ const styles = {
     textAlign: 'center',
     marginBottom: '20px',
     fontFamily: 'Arial, Sans-Serif',
-    fontWeight: 'Bold',
+    fontWeight: 'Bold'
   },
   registerButtonSubmit: {
     // margin: 'auto',
@@ -183,14 +183,14 @@ const styles = {
     padding: '17px 50px',
     fontSize: '14px',
     '&:hover': {
-      cursor: 'pointer',
-    },
+      cursor: 'pointer'
+    }
   },
   textImg: {
     fontFamily: 'MS Serif, New York, sans-serif',
     fontSize: '12px',
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 };
 
 export default injectSheet(styles)(RegisterPage);
