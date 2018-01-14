@@ -89,7 +89,7 @@ const styles = {
   containerItem: {
     fontFamily: 'sans-serif',
     width: '300px',
-    height: '40px',
+    height: '60px',
     display: 'flex',
     alignItems: 'center',
     borderBottom: '.5px solid lightGray',
